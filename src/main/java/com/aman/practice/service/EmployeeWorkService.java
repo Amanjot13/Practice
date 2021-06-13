@@ -21,6 +21,6 @@ public class EmployeeWorkService implements IEmpService<Employee> {
     public List<Employee> getEmployeeDetails() {
         System.out.println(employeeWorkRepository);
         System.out.println(employeeWorkRepository);
-        return employeeWorkRepository.findAll();
+        return null;
     }
 }

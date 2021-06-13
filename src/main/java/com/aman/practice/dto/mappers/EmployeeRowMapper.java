@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EmployeeRowMapper implements RowMapper<EmployeeBuild>, EmployeeRowMapper1 {
+public class EmployeeRowMapper implements RowMapper<EmployeeBuild> {
 
     @Override
     public EmployeeBuild mapRow(ResultSet rs, int rowNum) throws SQLException {

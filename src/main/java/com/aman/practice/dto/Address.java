@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable {
 
     @Id
     private int addressId;
@@ -19,6 +20,26 @@ public class Address {
     private String city;
     @Column(name = "pincode")
     private int pincode;
+
+    public int getAddressId() {
+        return addressId;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public int getPincode() {
+        return pincode;
+    }
 
     @Override
     public String toString() {
