@@ -1,5 +1,8 @@
 package com.aman.practice.dto;
 
+import lombok.Data;
+import org.hibernate.annotations.Generated;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,37 +19,24 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "employee")
+@Data
 public class Employee implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "empId")
     private int empId;
 
     @Column(name="empName")
     private String empName;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empDept", referencedColumnName = "deptId")
+  //  @JoinColumn(name = "empDept", referencedColumnName = "deptId")
     private Department empDept;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "empAddress", referencedColumnName = "addressId")
+  //  @JoinColumn(name = "empAddress", referencedColumnName = "addressId")
     private Address empAddress;
-
-    public int getEmpId() {
-        return empId;
-    }
-
-    public String getEmpName() {
-        return empName;
-    }
-
-    public Department getEmpDept() {
-        return empDept;
-    }
-
-    public Address getEmpAddress() {
-        return empAddress;
-    }
 
     @Override
     public String toString() {

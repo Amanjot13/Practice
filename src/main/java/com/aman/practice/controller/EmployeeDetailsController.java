@@ -1,5 +1,6 @@
 package com.aman.practice.controller;
 
+import com.aman.practice.dto.Employee;
 import com.aman.practice.dto.EmployeeBuild;
 import com.aman.practice.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,9 @@ import java.util.stream.Collectors;
 @RequestMapping("/practice")
 public class EmployeeDetailsController {
 
-    @Qualifier("employeeWorkService")
+    @Qualifier("employeeJPAService")
     @Autowired
-    private IEmpService empWorkService;
+    private IEmpService employeeJPAService;
 
     @Qualifier("employeeService")
     @Autowired
@@ -26,7 +27,14 @@ public class EmployeeDetailsController {
     @GetMapping("/employee")
     public List<String> getAllEmployees(){
 
-        List<EmployeeBuild> eb= empWorkService.getEmployeeDetails();
+        List<EmployeeBuild> eb= employeeService.getEmployeeDetails();
+        return eb.stream().map(x->x.getEmpName()).collect(Collectors.toList());
+    }
+
+    @GetMapping("/employeeJPA")
+    public List<String> getAllEmployeesJPA(){
+
+        List<Employee> eb= employeeJPAService.getEmployeeDetails();
         return eb.stream().map(x->x.getEmpName()).collect(Collectors.toList());
     }
 

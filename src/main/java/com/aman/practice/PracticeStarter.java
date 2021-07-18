@@ -22,7 +22,7 @@ public class PracticeStarter {
 
     public static void main(String[] args) {
         ApplicationContext ac= SpringApplication.run(PracticeStarter.class, args);
-        IEmpService es = ac.getBean("employeeWorkService", IEmpService.class);
+        IEmpService es = ac.getBean("employeeJPAService", IEmpService.class);
         es.getEmployeeDetails();
     }
 

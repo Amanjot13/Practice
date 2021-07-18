@@ -1,7 +1,7 @@
 package com.aman.practice.configurer;
 
 import com.aman.practice.repository.EmployeeRepository;
-import com.aman.practice.repository.EmployeeWorkRepository;
+import com.aman.practice.repository.EmployeeJPARepository;
 import com.aman.practice.repository.IEmpRepository;
 import com.aman.practice.service.EmployeeService;
 import com.aman.practice.service.IEmpService;

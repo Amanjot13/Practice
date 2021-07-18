@@ -1,45 +1,31 @@
 package com.aman.practice.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "address")
+@Data
 public class Address implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "addressId")
     private int addressId;
+
     @Column(name = "address1")
     private String address1;
+
     @Column(name = "address2")
     private String address2;
+
     @Column(name = "city")
     private String city;
+
     @Column(name = "pincode")
     private int pincode;
-
-    public int getAddressId() {
-        return addressId;
-    }
-
-    public String getAddress1() {
-        return address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public int getPincode() {
-        return pincode;
-    }
 
     @Override
     public String toString() {
