@@ -5,6 +5,7 @@ import com.aman.practice.repository.EmployeeJPARepository;
 import com.aman.practice.repository.IEmpRepository;
 import com.aman.practice.service.EmployeeService;
 import com.aman.practice.service.IEmpService;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,5 +28,10 @@ public class PracticeConfigurer {
     public IEmpService empService(){
         return new EmployeeService();
     }*/
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
 
 }

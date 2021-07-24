@@ -5,16 +5,18 @@ import org.hibernate.annotations.Generated;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
 * JSON Sample:
-* {
-  "empAddress": {"addressId":12,"address1":"AAmm", "address2": "jjjott", "city":"Gur","pincode":12},
-  "empDept": {"deptId":12,"dname":"AAmm", "deptHead": "jjjott"},
-      "empId": 234,
-      "empName": "Amanjot"
+{
+  "empName": "Amanjot"
+  "empAddress": {"address1":"B9-501", "address2": "Experion Heartsong", "city":"Guragon","pincode":122001},
+  "empDept": [{"dname":"Maths", "deptHead": "Amanjot"},{","dname":"Computer Science", "deptHead": "Amanjot"}]
 }
-* */
+*
+*/
 
 
 @Entity
@@ -30,12 +32,12 @@ public class Employee implements Serializable {
     @Column(name="empName")
     private String empName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-  //  @JoinColumn(name = "empDept", referencedColumnName = "deptId")
-    private Department empDept;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "empDept")
+    private List<Department> empDept = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-  //  @JoinColumn(name = "empAddress", referencedColumnName = "addressId")
+    @JoinColumn(name = "empAddress")
     private Address empAddress;
 
     @Override

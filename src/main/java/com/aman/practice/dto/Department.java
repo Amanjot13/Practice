@@ -13,11 +13,10 @@ import java.io.Serializable;
 public class Department implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int deptId;
 
     @Column(name = "deptName")
-    @JsonProperty("dname")
     private String deptName;
 
     @Column(name = "deptHead")

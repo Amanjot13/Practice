@@ -1,6 +1,7 @@
 package com.aman.practice.controller;
 
 import com.aman.practice.dto.Employee;
+import com.aman.practice.pojo.EmployeePojo;
 import com.aman.practice.producres.JmsProducer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class MessageController {
     ConnectionFactory  activeMQConnectionFactory;
 
     @PostMapping(value="/employee")
-    public Employee sendMessage(@RequestBody Employee employee){
+    public EmployeePojo sendMessage(@RequestBody EmployeePojo employee){
         System.out.println("here"+employee);
         jmsProducer.sendMessage(employee);
         return employee;
@@ -50,7 +51,7 @@ public class MessageController {
                 int total = 0;
                 while (messages.hasMoreElements()) {
                     ObjectMessage m = (ObjectMessage)messages.nextElement();
-                    System.out.println((Employee)m.getObject());
+                    System.out.println((EmployeePojo)m.getObject());
                     list.add(m);
                 }
                 return list;

@@ -1,6 +1,7 @@
 package com.aman.practice.producres;
 
 import com.aman.practice.dto.Employee;
+import com.aman.practice.pojo.EmployeePojo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +29,7 @@ public class JmsProducer {
     @Value("${active-mq.topic}")
     private String topic;
 
-    public void sendMessage(Employee message){
+    public void sendMessage(EmployeePojo message){
         try{
             MessageCreator mc = new MessageCreator() {
                 @Override
@@ -44,7 +45,7 @@ public class JmsProducer {
             log.info("Attempting Send message to Topic: "+ queue);
 //            jmsTemplate.convertAndSend(queue, message);
         } catch(Exception e){
-           log.error("Recieved Exception during send Message: ", e);
+           log.error("Received Exception during send Message: ", e);
         }
     }
 }

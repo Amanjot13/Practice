@@ -1,30 +1,20 @@
-package com.aman.practice.dto;
+package com.aman.practice.pojo;
 
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "address")
 @Data
-public class Address implements Serializable {
+public class AddressPojo implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "addressId")
     private int addressId;
 
-    @Column(name = "address1")
     private String address1;
 
-    @Column(name = "address2")
     private String address2;
 
-    @Column(name = "city")
     private String city;
 
-    @Column(name = "pincode")
     private int pincode;
 
     @Override

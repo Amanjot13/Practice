@@ -1,7 +1,9 @@
 package com.aman.practice.service;
 
 import com.aman.practice.configurer.RepositoryType;
+import com.aman.practice.dto.Employee;
 import com.aman.practice.dto.EmployeeBuild;
+import com.aman.practice.pojo.EmployeePojo;
 import com.aman.practice.repository.IEmpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +24,10 @@ public class EmployeeService implements IEmpService<EmployeeBuild> {
         System.out.println(employeeRepository);
         List<EmployeeBuild> employees = employeeRepository.getEmployeeDetails();
         return employees;
+    }
+
+    @Override
+    public boolean insertEmployeeDetails(Employee employee) {
+        return false;
     }
 }

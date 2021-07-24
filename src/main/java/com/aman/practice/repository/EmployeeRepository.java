@@ -34,7 +34,7 @@ public class EmployeeRepository implements IEmpRepository<EmployeeBuild> {
             "d.deptName as deptName, " +
             "d.deptHead as deptHead " +
             "from employee e, department d," +
-            " address a where e.empAddress=a.addressId and e.empDept=d.deptId";
+            " address a where e.empAddress=a.addressId and d.empDept=e.empId";
 
     public List<EmployeeBuild> getEmployeeDetails() {
         System.out.println("EmployeeRepository");
